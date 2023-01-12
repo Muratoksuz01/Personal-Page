@@ -1,0 +1,36 @@
+{%extends "base.html"%}
+{%load static%}
+{%block title%} blog_datails {%endblock%}
+{%block content%}
+
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-3">
+            {%include 'paritals/catagorires.html'%}
+        </div>
+        <div class="col-9">
+            <div class="card mb-3">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="{% static 'blog/img/'|add:blog.image%}" alt="" class="img-fluid">       
+                            {% comment %} <img src="{% static 'blog/img/1.jpg'%}" alt="" class="img-fluid"> {% endcomment %}
+                        </div>
+                        <div class="col-md-9">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                        {{blog.title}}
+
+                                </h5>
+                                <p class="card-text"> {{blog.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+{%endblock%}

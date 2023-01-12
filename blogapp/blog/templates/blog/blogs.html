@@ -1,0 +1,21 @@
+{%extends "base.html"%}
+{%block title%} blog {%endblock%}
+
+{%block content%}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-3">
+        {%include 'paritals/catagorires.html'%} 
+        </div>
+        <div class="col-9">
+            <h1>all blogs</h1>
+            {%for blog in blogs%}<!-- burada views.py da blogs var onu burad kullanıyoruz burada anakuutları yani python,django kutusunu dinamik hale getiriyoruz  --> 
+                {%include 'partials/_blog.html'%} 
+            {%endfor%}
+
+
+        </div>
+    </div>
+</div>
+{%endblock%}
+
