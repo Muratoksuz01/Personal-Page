@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-
+from django.conf.urls.static import static
+from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),# password:Adanalı01. username:admin e-posta:muratoksuz208@gmailcom
     path('',include("blog.urls"))# burada linkleri kendi blogumuz uzerindeki url lere cektit
-]
+]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)#resim dosyalarını yukledik fakat admin taafında gelmiyordu bu kmut sayesınde gelir oldu setting.py dosyasındadan bu resimlerin yolunu belirtik  

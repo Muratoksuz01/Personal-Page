@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Blog,Catagory
+from .models import Blog,Category
 # Register your models here.
 
 class BlogAdmin(admin.ModelAdmin):
@@ -9,4 +9,4 @@ class BlogAdmin(admin.ModelAdmin):
     readonly_fields=["slug"]#bloga tıkladıgında slug ları değiştiremessin artık  sadece görmen için 
 
 admin.site.register(Blog,BlogAdmin)
-admin.site.register(Catagory)
+admin.site.register(Category)

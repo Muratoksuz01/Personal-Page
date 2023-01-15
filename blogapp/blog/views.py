@@ -1,53 +1,22 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from blog.models import Blog
+from blog.models import Blog,Category
 # Create your views here.
-
-data={
-    "blogs":
-    [
-        {
-            "id":1,
-            "title":"komple web geliştirme",
-            "image":"1.jpg",
-            "is_active":True,
-            "is_home":True,
-            "description":"cok iyi bir kurs"
-        },
-        {
-            "id":2,
-            "title":"python",
-            "image":"2.jpg",
-            "is_active":True,
-            "is_home":True,
-            "description":"cok iyi bir kurs"
-        },
-        {
-            "id":3,
-            "title":"django",
-            "image":"3.jpg",
-            "is_active":False,
-            "is_home":False,
-            "description":"cok iyi bir kurs"
-        }
-    ]
-}
-
 
 
 def Index(request):
     context={
-        "blogs":Blog.objects.filter(is_home=True,is_active=True)
-        #"blogs":Blog.objects.all()#
-        #"blogs":data["blogs"]
+        "blogs":Blog.objects.filter(is_home=True,is_active=True),
+        "catagories":Category.objects.all(),
     }
     return render(request,"blog/index.html",context) 
+def blogs_by_category(request,slug):
+    pass
 
 def blog(request):
     context={
-        "blogs":Blog.objects.filter(is_active=True )
-        #"blogs":data["blogs"]
-
+        "blogs":Blog.objects.filter(is_active=True ),
+        "categories":Category.objects.all(),
     }
     return render(request,"blog/blogs.html",context)
 

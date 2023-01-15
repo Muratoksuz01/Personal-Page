@@ -1,11 +1,13 @@
 from django.db import models
 from django.utils.text import slugify
+from ckeditor.fields import RichTextField
+
 # Create your models here.
 
 class Blog(models.Model):
     title=models.CharField(max_length=200)
-    image=models.CharField(max_length=50)
-    description=models.TextField(max_length=200)
+    image=models.ImageField(upload_to="blogs")
+    description=RichTextField()
     is_active=models.BooleanField(default=False)
     is_home=models.BooleanField(default=False)
     slug=models.SlugField(null=False,blank=True,unique=True,db_index=True,editable=False)#blank ile bos deger yazıp kayıt et dediğinde hata alıyorduk bunu engelledi artık bos kayıt edebilirsin program kendisi sug oluşturacak 
@@ -19,7 +21,7 @@ class Blog(models.Model):
     def __str__(self):# burada anasayfada bu kutuların isimleri var onu direkt göruyorsun 
         return f"{self.title}"
 
-class Catagory(models.Model):
+class Category(models.Model):
     name=models.CharField(max_length=150)
     slug=models.SlugField(null=False,blank=True,unique=True,db_index=True,editable=False)#blank ile bos deger yazıp kayıt et dediğinde hata alıyorduk bunu engelledi artık bos kayıt edebilirsin program kendisi sug oluşturacak 
     

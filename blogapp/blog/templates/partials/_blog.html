@@ -2,14 +2,14 @@
 <div class="card mb-3">
     <div class="row">
       <div class="col-md-3">
-        <img src="{%static 'blog/img/'|add:blog.image%}" class="img-fluid w-100 h-100 rounded-start" alt="">
+        <img src="{{blog.image.url}}" class="img-fluid w-100 h-100 rounded-start" alt="">
       </div> 
       <div class="col-md-9">
         <div class="card-body">
           <h5 class="card-title">
             <a href="{% url 'blog_datails' blog.slug %}" >{{blog.title}}</a>
           </h5>
-          <p class="card-text">{{blog.description}}</p>
+          <p class="card-text">{{blog.description|striptags|slice:"0:50"}}</p>
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
       </div>
