@@ -1,3 +1,4 @@
+{% comment %} herseyin başladıgı yer {% endcomment %}
 {%load static%}
 <!DOCTYPE html>
 <html lang="tr">
@@ -15,8 +16,8 @@
     {%include 'paritals/_navbar.html'%}
   
     {%block content%}{%endblock%}
-    {% comment %} <script src="{%static 'blog/js/bootstrap.bundle.min.js.js'%}"></script> {% endcomment %}
-    {% comment %} {%block js_files%}{%endblock%} {% endcomment %}
+    <script src="{%static 'blog/js/bootstrap.bundle.min.js.js'%}"></script>
+    {%block js_files%}{%endblock%}
     
 </body>
 </html> 

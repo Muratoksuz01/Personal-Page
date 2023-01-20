@@ -1,6 +1,10 @@
 <div class="list-group">
-
+{% comment %} bak murat efendi if icindeki ifadelerde araya bir bosluk koyman lazım dil daha yeni bir dil eksikleri  var bu onlardan biri  {% endcomment %}
     {% for category in categories%}
-    <a class="list-group-item list-group-item-action" href="{% url 'blogs_by_category' category.slug %}">{{category.name|title}}</a>
+        {% if category.slug == selected_category %}
+            <a class="list-group-item list-group-item-action active" href="{% url 'blogs_by_category' category.slug %}">{{category.name|title}}</a>
+        {% else %}
+            <a class="list-group-item list-group-item-action" href="{% url 'blogs_by_category' category.slug %}">{{category.name|title}}</a>
+        {% endif %}
     {% endfor %}
 </div>  

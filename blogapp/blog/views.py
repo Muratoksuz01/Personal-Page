@@ -7,11 +7,18 @@ from blog.models import Blog,Category
 def Index(request):
     context={
         "blogs":Blog.objects.filter(is_home=True,is_active=True),
-        "catagories":Category.objects.all(),
+        "catagories":Category.objects.all(),#bu parametreyi gönderemiyoruz aynısıs blog ta da var ama burada calışmıyor anlamdaım  
     }
     return render(request,"blog/index.html",context) 
+    
 def blogs_by_category(request,slug):
-    pass
+    context={
+        "blogs":Category.objects.get(slug=slug).blog_set.filter(is_active=True),
+        #"blogs":Blog.objects.filter(is_active=True ,category__slug=slug),#models.py dosyasındaki blog clasına gidiyorsun blog clasında cetagory clasına giden bir yer yer onu belirmek için yani blog clasından categorri clasından bir sey istefiğin için 2'__' alt cizgi kullanıyorsun bunu belirmen gerekiyor unutma 
+        "categories":Category.objects.all(),
+        "selected_category":slug
+    }
+    return render(request,"blog/blogs.html",context)
 
 def blog(request):
     context={

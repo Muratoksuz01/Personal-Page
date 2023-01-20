@@ -6,7 +6,7 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-3">
-                {%include 'paritals/categorires.html'%} 
+                {%include 'paritals/categorires.html'%}{% comment %} burada bir hata var categori kolonu gelmiyor {% endcomment %}
             </div>
             <div class="col-9">
                 {%for blog in blogs%}<!-- burada views.py da blogs var onu burad kullanıyoruz burada anakuutları yani python,django kutusunu dinamik hale getiriyoruz  --> 
@@ -14,7 +14,7 @@
                         {%include 'partials/_blog.html'%}    
                     {%endif%}
                 {%endfor%}
-            </d iv>
+            </div>
         </div>
     </div>
 {%endblock%}
