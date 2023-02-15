@@ -7,7 +7,7 @@ from blog.models import Blog,Category
 def Index(request):
     context={
         "blogs":Blog.objects.filter(is_home=True,is_active=True),
-        "catagories":Category.objects.all(),#bu parametreyi gönderemiyoruz aynısıs blog ta da var ama burada calışmıyor anlamdaım  
+        "categories":Category.objects.all(),#bu parametreyi gönderemiyoruz aynısıs blog ta da var ama burada calışmıyor anlamdaım  
     }
     return render(request,"blog/index.html",context) 
     
@@ -37,5 +37,5 @@ def blog_datails(request,slug):
 
     
     blog=Blog.objects.get(slug=slug)
-    return render(request,"blog/blogs-datails.html",{"blogs":blog})
+    return render(request,"blog/blogs-datails.html",{"blog":blog})
 
